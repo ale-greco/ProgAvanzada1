@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat "Saludo.bat"
+                echo "Estoy en jenkinsfile"
             }
         }
     }
