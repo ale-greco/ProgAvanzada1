@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Package') {
             steps {
-                bat 'jar cf app.jar *.class'
+                bat 'jar cfm HolaMundo.jar manifest.txt *.class'
             }
         }    
         stage('SmokeTest') {
             steps {
-                bat 'java HolaMundo.class'
+                bat 'java -jar HolaMundo.jar'
             }
         }
     }
