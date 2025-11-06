@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/ale-greco/ProgAvanzada1.git'
+            }
+        }
+        stage('Compile') {
+            steps {
+                bat 'javac *.java'
+            }
+        }
+        stage('Package') {
+            steps {
+                bat 'jar cf app.jar *.class'
+            }
+        }    
+        stage('SmokeTest') {
+            steps {
+                bat 'java HolaMundo.class'
+            }
+        }
+    }
+}
